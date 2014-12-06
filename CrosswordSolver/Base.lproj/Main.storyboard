@@ -1,25 +1,77 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aVS-58-DHW">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--Crosswords-->
+        <scene sceneID="ykx-5A-5NC">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                <tableViewController id="zjl-0y-Bdq" customClass="CrosswordsListViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="VX5-oF-ggu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" showsScopeBar="YES" id="12h-s6-myu">
+                            <rect key="frame" x="0.0" y="64" width="600" height="88"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Capital</string>
+                                <string>Currency</string>
+                            </scopeButtonTitles>
+                            <connections>
+                                <outlet property="delegate" destination="zjl-0y-Bdq" id="nfF-bQ-xAv"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CrosswordCell" id="egb-FR-u6Y">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="egb-FR-u6Y" id="Fyq-3v-J3x">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zjl-0y-Bdq" id="i0u-jl-bnF"/>
+                            <outlet property="delegate" destination="zjl-0y-Bdq" id="Q0N-c2-X4F"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Crosswords" id="q9G-XE-Uib"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="zFM-P3-xAB" id="KxC-iX-zqY"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3J-V6-qxP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="zFM-P3-xAB">
+                    <connections>
+                        <outlet property="delegate" destination="zjl-0y-Bdq" id="lbA-cc-2KH"/>
+                        <outlet property="searchBar" destination="12h-s6-myu" id="c5L-7n-fRw"/>
+                        <outlet property="searchContentsController" destination="zjl-0y-Bdq" id="grP-Wg-8RK"/>
+                        <outlet property="searchResultsDataSource" destination="zjl-0y-Bdq" id="8FH-9l-0Ys"/>
+                        <outlet property="searchResultsDelegate" destination="zjl-0y-Bdq" id="LLX-Jx-P6p"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
+            <point key="canvasLocation" x="1091" y="729"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Cga-eQ-tKE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aVS-58-DHW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EWk-CF-JxB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zjl-0y-Bdq" kind="relationship" relationship="rootViewController" id="CbC-Gj-iK9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHb-OB-xci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="61" y="729"/>
         </scene>
     </scenes>
 </document>

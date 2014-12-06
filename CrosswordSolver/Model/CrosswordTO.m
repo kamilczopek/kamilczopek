@@ -1,15 +1,14 @@
 //
-//  ViewController.h
+//  CrosswordTO.m
 //  CrosswordSolver
 //
 //  Created by Kamil Czopek on 30.11.2014.
 //  Copyright (c) 2014 Kamil Czopek. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CrosswordTO.h"
 
-@interface ViewController : UIViewController
+@implementation CrosswordTO
 
 
 @end
-

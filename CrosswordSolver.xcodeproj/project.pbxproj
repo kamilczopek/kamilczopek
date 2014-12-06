@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E0CFAC91A311154001BD54D /* Crossword.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CFAC81A311154001BD54D /* Crossword.m */; };
+		8E0CFACC1A3111CD001BD54D /* Crossword+CoreData_CRUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CFACB1A3111CD001BD54D /* Crossword+CoreData_CRUD.m */; };
+		8E20D1051A2B33A300229BBA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E20D1041A2B33A300229BBA /* libsqlite3.dylib */; };
+		8E20D1091A2B3F7000229BBA /* CrosswordTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E20D1081A2B3F7000229BBA /* CrosswordTO.m */; };
 		8E5BAA9E1A2B321000CCF1DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BAA9D1A2B321000CCF1DA /* main.m */; };
 		8E5BAAA11A2B321000CCF1DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BAAA01A2B321000CCF1DA /* AppDelegate.m */; };
 		8E5BAAA41A2B321000CCF1DA /* CrosswordSolver.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BAAA21A2B321000CCF1DA /* CrosswordSolver.xcdatamodeld */; };
-		8E5BAAA71A2B321000CCF1DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BAAA61A2B321000CCF1DA /* ViewController.m */; };
 		8E5BAAAA1A2B321000CCF1DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E5BAAA81A2B321000CCF1DA /* Main.storyboard */; };
 		8E5BAAAC1A2B321000CCF1DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E5BAAAB1A2B321000CCF1DA /* Images.xcassets */; };
 		8E5BAAAF1A2B321000CCF1DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5BAAAD1A2B321000CCF1DA /* LaunchScreen.xib */; };
 		8E5BAABB1A2B321000CCF1DA /* CrosswordSolverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BAABA1A2B321000CCF1DA /* CrosswordSolverTests.m */; };
+		8E5BAAC51A2B325000CCF1DA /* crossword.db in Resources */ = {isa = PBXBuildFile; fileRef = 8E5BAAC41A2B325000CCF1DA /* crossword.db */; };
+		8E5BAACC1A2B333000CCF1DA /* DBAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BAACB1A2B333000CCF1DA /* DBAccess.m */; };
+		8EED25E91A32310100283AF9 /* CrosswordsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EED25E81A32310100283AF9 /* CrosswordsListViewController.m */; };
+		8EED25EE1A323E7600283AF9 /* ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EED25ED1A323E7600283AF9 /* ActivityIndicatorView.m */; };
+		8EED25F21A32458200283AF9 /* PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EED25F11A32458200283AF9 /* PersistenceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,20 +36,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E0CFAC71A311154001BD54D /* Crossword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crossword.h; sourceTree = "<group>"; };
+		8E0CFAC81A311154001BD54D /* Crossword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crossword.m; sourceTree = "<group>"; };
+		8E0CFACA1A3111CD001BD54D /* Crossword+CoreData_CRUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Crossword+CoreData_CRUD.h"; sourceTree = "<group>"; };
+		8E0CFACB1A3111CD001BD54D /* Crossword+CoreData_CRUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Crossword+CoreData_CRUD.m"; sourceTree = "<group>"; };
+		8E20D1041A2B33A300229BBA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		8E20D1071A2B3F7000229BBA /* CrosswordTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrosswordTO.h; path = Model/CrosswordTO.h; sourceTree = "<group>"; };
+		8E20D1081A2B3F7000229BBA /* CrosswordTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrosswordTO.m; path = Model/CrosswordTO.m; sourceTree = "<group>"; };
 		8E5BAA981A2B321000CCF1DA /* CrosswordSolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrosswordSolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5BAA9C1A2B321000CCF1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E5BAA9D1A2B321000CCF1DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8E5BAA9F1A2B321000CCF1DA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8E5BAAA01A2B321000CCF1DA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8E5BAAA31A2B321000CCF1DA /* CrosswordSolver.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CrosswordSolver.xcdatamodel; sourceTree = "<group>"; };
-		8E5BAAA51A2B321000CCF1DA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8E5BAAA61A2B321000CCF1DA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8E5BAAA91A2B321000CCF1DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E5BAAAB1A2B321000CCF1DA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8E5BAAAE1A2B321000CCF1DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8E5BAAB41A2B321000CCF1DA /* CrosswordSolverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrosswordSolverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5BAAB91A2B321000CCF1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E5BAABA1A2B321000CCF1DA /* CrosswordSolverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrosswordSolverTests.m; sourceTree = "<group>"; };
+		8E5BAAC41A2B325000CCF1DA /* crossword.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = crossword.db; sourceTree = "<group>"; };
+		8E5BAACA1A2B333000CCF1DA /* DBAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBAccess.h; path = Database/DBAccess.h; sourceTree = "<group>"; };
+		8E5BAACB1A2B333000CCF1DA /* DBAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBAccess.m; path = Database/DBAccess.m; sourceTree = "<group>"; };
+		8EED25E71A32310100283AF9 /* CrosswordsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CrosswordsListViewController.h; path = Controllers/CrosswordsListViewController.h; sourceTree = "<group>"; };
+		8EED25E81A32310100283AF9 /* CrosswordsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CrosswordsListViewController.m; path = Controllers/CrosswordsListViewController.m; sourceTree = "<group>"; };
+		8EED25EC1A323E7600283AF9 /* ActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityIndicatorView.h; sourceTree = "<group>"; };
+		8EED25ED1A323E7600283AF9 /* ActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityIndicatorView.m; sourceTree = "<group>"; };
+		8EED25F01A32458200283AF9 /* PersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersistenceManager.h; path = Services/PersistenceManager.h; sourceTree = "<group>"; };
+		8EED25F11A32458200283AF9 /* PersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersistenceManager.m; path = Services/PersistenceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E20D1051A2B33A300229BBA /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +85,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E0CFAC61A311154001BD54D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8E0CFAC71A311154001BD54D /* Crossword.h */,
+				8E0CFAC81A311154001BD54D /* Crossword.m */,
+				8E0CFACA1A3111CD001BD54D /* Crossword+CoreData_CRUD.h */,
+				8E0CFACB1A3111CD001BD54D /* Crossword+CoreData_CRUD.m */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		8E20D1061A2B3F5100229BBA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E20D1071A2B3F7000229BBA /* CrosswordTO.h */,
+				8E20D1081A2B3F7000229BBA /* CrosswordTO.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8E4A0AE11A2E701800ACEF4D /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				8E5BAA9F1A2B321000CCF1DA /* AppDelegate.h */,
+				8E5BAAA01A2B321000CCF1DA /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
 		8E5BAA8F1A2B320F00CCF1DA = {
 			isa = PBXGroup;
 			children = (
@@ -83,14 +135,11 @@
 		8E5BAA9A1A2B321000CCF1DA /* CrosswordSolver */ = {
 			isa = PBXGroup;
 			children = (
-				8E5BAA9F1A2B321000CCF1DA /* AppDelegate.h */,
-				8E5BAAA01A2B321000CCF1DA /* AppDelegate.m */,
-				8E5BAAA51A2B321000CCF1DA /* ViewController.h */,
-				8E5BAAA61A2B321000CCF1DA /* ViewController.m */,
-				8E5BAAA81A2B321000CCF1DA /* Main.storyboard */,
-				8E5BAAAB1A2B321000CCF1DA /* Images.xcassets */,
-				8E5BAAAD1A2B321000CCF1DA /* LaunchScreen.xib */,
-				8E5BAAA21A2B321000CCF1DA /* CrosswordSolver.xcdatamodeld */,
+				8EAB44071A33B45D00FDE650 /* UserInterface */,
+				8EED25EF1A32453200283AF9 /* Services */,
+				8E4A0AE11A2E701800ACEF4D /* AppDelegate */,
+				8E20D1061A2B3F5100229BBA /* Model */,
+				8E5BAAC61A2B326D00CCF1DA /* Database */,
 				8E5BAA9B1A2B321000CCF1DA /* Supporting Files */,
 			);
 			path = CrosswordSolver;
@@ -120,6 +169,66 @@
 				8E5BAAB91A2B321000CCF1DA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8E5BAAC61A2B326D00CCF1DA /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				8E0CFAC61A311154001BD54D /* CoreData */,
+				8E5BAAC41A2B325000CCF1DA /* crossword.db */,
+				8E5BAAA21A2B321000CCF1DA /* CrosswordSolver.xcdatamodeld */,
+				8E20D1041A2B33A300229BBA /* libsqlite3.dylib */,
+				8E5BAACA1A2B333000CCF1DA /* DBAccess.h */,
+				8E5BAACB1A2B333000CCF1DA /* DBAccess.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		8EAB44071A33B45D00FDE650 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				8E5BAAAB1A2B321000CCF1DA /* Images.xcassets */,
+				8E5BAAA81A2B321000CCF1DA /* Main.storyboard */,
+				8E5BAAAD1A2B321000CCF1DA /* LaunchScreen.xib */,
+				8EED25E61A32307300283AF9 /* Controllers */,
+				8EED25EA1A323E7600283AF9 /* Views */,
+			);
+			name = UserInterface;
+			sourceTree = "<group>";
+		};
+		8EED25E61A32307300283AF9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8EED25E71A32310100283AF9 /* CrosswordsListViewController.h */,
+				8EED25E81A32310100283AF9 /* CrosswordsListViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		8EED25EA1A323E7600283AF9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8EED25EB1A323E7600283AF9 /* ActivityIndicator */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8EED25EB1A323E7600283AF9 /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				8EED25EC1A323E7600283AF9 /* ActivityIndicatorView.h */,
+				8EED25ED1A323E7600283AF9 /* ActivityIndicatorView.m */,
+			);
+			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+		8EED25EF1A32453200283AF9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8EED25F01A32458200283AF9 /* PersistenceManager.h */,
+				8EED25F11A32458200283AF9 /* PersistenceManager.m */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +313,7 @@
 			files = (
 				8E5BAAAA1A2B321000CCF1DA /* Main.storyboard in Resources */,
 				8E5BAAAF1A2B321000CCF1DA /* LaunchScreen.xib in Resources */,
+				8E5BAAC51A2B325000CCF1DA /* crossword.db in Resources */,
 				8E5BAAAC1A2B321000CCF1DA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,8 +333,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E5BAAA41A2B321000CCF1DA /* CrosswordSolver.xcdatamodeld in Sources */,
+				8EED25EE1A323E7600283AF9 /* ActivityIndicatorView.m in Sources */,
+				8E20D1091A2B3F7000229BBA /* CrosswordTO.m in Sources */,
 				8E5BAAA11A2B321000CCF1DA /* AppDelegate.m in Sources */,
-				8E5BAAA71A2B321000CCF1DA /* ViewController.m in Sources */,
+				8E5BAACC1A2B333000CCF1DA /* DBAccess.m in Sources */,
+				8E0CFAC91A311154001BD54D /* Crossword.m in Sources */,
+				8E0CFACC1A3111CD001BD54D /* Crossword+CoreData_CRUD.m in Sources */,
+				8EED25E91A32310100283AF9 /* CrosswordsListViewController.m in Sources */,
+				8EED25F21A32458200283AF9 /* PersistenceManager.m in Sources */,
 				8E5BAA9E1A2B321000CCF1DA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +532,7 @@
 				8E5BAAC01A2B321000CCF1DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8E5BAAC11A2B321000CCF1DA /* Build configuration list for PBXNativeTarget "CrosswordSolverTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +541,7 @@
 				8E5BAAC31A2B321000CCF1DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
