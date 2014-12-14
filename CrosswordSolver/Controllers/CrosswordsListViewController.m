@@ -15,7 +15,9 @@
 @interface CrosswordsListViewController()
 @property (nonatomic, strong)  NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) ActivityIndicatorView *activityIndicatorView;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSArray *filteredList;
+@property (nonatomic, strong) NSFetchRequest *searchFetchRequest;
 
 @end
 
@@ -79,19 +81,46 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+    if (tableView == self.tableView)
+    {
+        return [[self.fetchedResultsController sections] count];
+    }
+    else
+    {
+        return 1;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo numberOfObjects];
+    if (tableView == self.tableView)
+    {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+        return [sectionInfo numberOfObjects];
+    }
+    else
+    {
+        return [self.filteredList count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CrosswordCell" forIndexPath:indexPath];
-    [self configureCell:cell atIndexPath:indexPath];
+    // Always use self.tableView insead of tableView passesd as a method's param.
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CrosswordCell" forIndexPath:indexPath];
+    
+    Crossword *crossword = nil;
+    if (tableView == self.tableView)
+    {
+        crossword = [self.fetchedResultsController objectAtIndexPath:indexPath];;
+        
+    }
+    else
+    {
+        crossword = [self.filteredList objectAtIndex:indexPath.row];
+    }
+    
+    cell.textLabel.text = crossword.word;
     return cell;
 }
 
@@ -206,6 +235,85 @@
     Crossword *crossword = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = crossword.word;
 }
+
+- (NSFetchRequest *)searchFetchRequest
+{
+    if (_searchFetchRequest != nil)
+    {
+        return _searchFetchRequest;
+    }
+    
+    _searchFetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Crossword" inManagedObjectContext:self.managedObjectContext];
+    [_searchFetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"word" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    [_searchFetchRequest setSortDescriptors:sortDescriptors];
+    
+    return _searchFetchRequest;
+}
+
+#pragma mark -
+#pragma mark === UISearchDisplayDelegate ===
+#pragma mark -
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self searchWithText:searchString andScope:controller.searchBar.selectedScopeButtonIndex];
+    return YES;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    [self searchWithText:controller.searchBar.text andScope:searchOption];
+
+    return YES;
+}
+
+- (NSPredicate*)searchPredicateWithSearchString:(NSString*)searchString andScopeButtonIndex:(NSInteger)buttonIndex
+{
+    NSUInteger wordLength = buttonIndex + 4;
+    NSString *searchStringWithWildcards = searchString;
+    
+    // Add wildcards for the missing characters.
+    for (int i=0; i< wordLength - searchString.length; i++) {
+        searchStringWithWildcards = [searchStringWithWildcards stringByAppendingString:@"?"];
+    }
+    
+    NSString *predicateFormat = @"length == %d AND word LIKE[cd] %@";
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateFormat, wordLength, searchStringWithWildcards];
+
+    return predicate;
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
+{
+    tableView.rowHeight = 64;
+}
+
+- (void)searchWithText:(NSString *)searchText andScope:(NSInteger)scope
+{
+    NSPredicate *predicate = [self searchPredicateWithSearchString:searchText andScopeButtonIndex:scope];
+    [self searchWithPredicate:predicate];
+}
+
+- (void)searchWithPredicate:(NSPredicate*)predicate
+{
+    if (self.managedObjectContext)
+    {
+        [self.searchFetchRequest setPredicate:predicate];
+        
+        NSError *error = nil;
+        self.filteredList = [self.managedObjectContext executeFetchRequest:self.searchFetchRequest error:&error];
+        if (error)
+        {
+            NSLog(@"searchFetchRequest failed: %@",[error localizedDescription]);
+        }
+    }
+}
+
 
 
 @end
